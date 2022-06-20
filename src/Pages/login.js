@@ -3,7 +3,7 @@ import { Link } from '../Components/link';
 import { Label } from '../Components/label';
 import { Thank } from './thanks';
 import { Button } from '../Components/buttons';
-import users from '../data/data.json';
+import users from 'https://gist.github.com/zishan26/a9f250ac51c0a42b2fe9efb91e2ea390';
 
 class PageComponent extends React.Component {
     constructor() {
@@ -22,7 +22,7 @@ class PageComponent extends React.Component {
 
     }
 
-    /*
+    
     buildList = (data) => {
         
         console.log(data, null, '/t')
@@ -32,7 +32,7 @@ class PageComponent extends React.Component {
 
     componentDidMount() {
         console.log("inside componentdidmount");
-        let url = '/src/data/data.json';
+        let url = 'https://gist.github.com/zishan26/a9f250ac51c0a42b2fe9efb91e2ea390';
         fetch(url)
             .then(res => res.json())
             .then(
@@ -41,7 +41,7 @@ class PageComponent extends React.Component {
                 }
             )
     }
-        */
+    //    */
         
         //const  { uname,pass,signedIn } = this.state;
         //users.map(user => {
