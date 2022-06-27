@@ -3,7 +3,8 @@ import { Link } from '../Components/link';
 import { Label } from '../Components/label';
 import { Thank } from './thanks';
 import { Button } from '../Components/buttons';
-import users from 'https://gist.github.com/zishan26/a9f250ac51c0a42b2fe9efb91e2ea390';
+//import users from 'https://gist.github.com/zishan26/a9f250ac51c0a42b2fe9efb91e2ea390';
+import users from '../data/data.json';
 
 class PageComponent extends React.Component {
     constructor() {
@@ -14,7 +15,7 @@ class PageComponent extends React.Component {
             pass: '',
             signedIn: true,
             auth: true,
-            list: [],
+            //list: [],
             error: null
         };
         this.buttonClick = this.buttonClick.bind();
@@ -22,7 +23,7 @@ class PageComponent extends React.Component {
 
     }
 
-    
+    /*
     buildList = (data) => {
         
         console.log(data, null, '/t')
@@ -41,7 +42,7 @@ class PageComponent extends React.Component {
                 }
             )
     }
-    //    */
+        */
         
         //const  { uname,pass,signedIn } = this.state;
         //users.map(user => {
@@ -91,13 +92,14 @@ class PageComponent extends React.Component {
         
         const { signedIn,auth } = this.state;
         
-        this.setState({ signedIn: !signedIn, auth: !auth });
-        
+        this.setState({ signedIn: !signedIn });
+        if (auth===false)
+            this.setState({auth: true });
     
     }
 
     render() {
-        console.log("inside render");
+        //console.log("inside render");
         //console.log('State: ',this.state);
         const  { auth , signedIn } = this.state;
         return (
@@ -184,31 +186,8 @@ class PageComponent extends React.Component {
                 size='20px'
                 />
                 </div>
-                        </div>
-                        <ul>
-                            {
-                                this.state.list.length === 0 && 
-                                <li>No data available</li>
-                            }
-                            {
-                                this.state.list.length > 0 &&
-                                this.state.list.map((item) => (
-                                    <li key={item.uname} id={item.uname}>
-                                        {
-                                            item.uname+ " " +item.pass
-                                        }
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        {
-                            this.state.error && 
-                            <h1>
-                                    {
-                                        this.state.error
-                                    }
-                            </h1>
-                        }
+                </div>
+                        
             </div>
             :
                 <div> 
