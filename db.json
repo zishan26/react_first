@@ -1,0 +1,16 @@
+{
+  "user": [
+    {
+      "uname": "zkhan",
+      "pass": "abcd"
+    },
+    {
+      "uname": "admin",
+      "pass": "admin123"
+    },
+    {
+      "uname": "jackie",
+      "pass": "Chan"
+    }
+  ]
+}
