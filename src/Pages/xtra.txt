@@ -1,24 +1,2 @@
-<ul>
-                            {
-                                this.state.list.length === 0 && 
-                                <li>No data available</li>
-                            }
-                            {
-                                this.state.list.length > 0 &&
-                                this.state.list.map((item) => (
-                                    <li key={item.uname} id={item.uname}>
-                                        {
-                                            item.uname+ " " +item.pass
-                                        }
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        {
-                            this.state.error && 
-                            <h1>
-                                    {
-                                        this.state.error
-                                    }
-                            </h1>
-                        }
+npm install -g json-server
+json-server --watch db.json

@@ -13,13 +13,10 @@ class PageComponent extends React.Component {
       uname: "",
       pass: "",
       signedIn: true,
-      auth: true,
-      list: [],
-      error: null,
+      auth: false,
     };
     this.buttonClick = this.buttonClick.bind();
     this.getval = this.getval.bind();
-    //const[users,setUsers]=useState([]);
   }
 
   state = {
@@ -49,10 +46,10 @@ class PageComponent extends React.Component {
     console.log("Password on submit :", pass);
     this.state.posts.map((post) => {
       if (post.uname === uname && post.pass === pass) {
-        this.setState({ auth: !auth, signedIn: !signedIn });
+        this.setState({ signedIn: !signedIn });
       } else {
-        //alert("wrong input");
-        this.setState({ auth: false });
+        //   alert("wrong input");
+        this.setState({ auth: true });
       }
     });
   };
@@ -71,40 +68,42 @@ class PageComponent extends React.Component {
         {signedIn ? (
           <div className="box">
             <h2 className="centertext">LOGIN</h2>
-            <Label
-              text="Username"
-              inputType="text"
-              iconClass="fa-solid fa-user"
-              labelClass="left"
-              placeHolder="Enter Username"
-              func={this.getval}
-              varname="uname"
-            />
-            <Label
-              text="Password"
-              inputType="password"
-              iconClass="fa-solid fa-lock"
-              labelClass="left"
-              placeHolder="Enter Password"
-              func={this.getval}
-              varname="pass"
-            />
-            <Link
-              url="https://www.google.com"
-              text="Forgot Password?"
-              iconClass="right"
-              iconColor="#000000"
-              size="14px"
-            />
-            <div className="space">
-              <Button
-                text="SUBMIT"
-                buttonClass="submitButton"
-                func={this.buttonClick}
+            <form>
+              <Label
+                text="Username"
+                inputType="text"
+                iconClass="fa-solid fa-user"
+                labelClass="left"
+                placeHolder="Enter Username"
+                func={this.getval}
+                varname="uname"
               />
-            </div>
+              <Label
+                text="Password"
+                inputType="password"
+                iconClass="fa-solid fa-lock"
+                labelClass="left"
+                placeHolder="Enter Password"
+                func={this.getval}
+                varname="pass"
+              />
+              <Link
+                url="https://www.google.com"
+                text="Forgot Password?"
+                iconClass="right"
+                iconColor="#000000"
+                size="14px"
+              />
+              <div className="space">
+                <Button
+                  text="SUBMIT"
+                  buttonClass="submitButton"
+                  func={this.buttonClick}
+                />
+              </div>
+            </form>
 
-            {!auth ? <div className="warning">Wrong input!!</div> : null}
+            {auth ? <div className="warning">Wrong input!!</div> : null}
 
             <div className="centertext">
               <div className="space10">or Signup using</div>
